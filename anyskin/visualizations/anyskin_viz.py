@@ -100,6 +100,8 @@ def visualize(port, file=None, viz_mode="3axis", scaling=7.0, record=False):
 
     def get_baseline():
         baseline_data = sensor_stream.get_data(num_samples=5)
+        if baseline_data == []:
+            raise ValueError("Sensor failed to initialize")
         baseline_data = np.array(baseline_data)[:, 1:]
         baseline = np.mean(baseline_data, axis=0)
         return baseline

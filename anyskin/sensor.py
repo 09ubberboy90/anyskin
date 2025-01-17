@@ -62,7 +62,7 @@ class AnySkinBase(serial.Serial):
         """
         Opens the serial port for communication with sensor
         """
-        self.flush()
+        # self.flush()
         print("Initializing sensor...")
         try:
             self.get_sample()
